@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.6.0_20" class="java.beans.XMLDecoder">
+<java version="1.6.0_0" class="java.beans.XMLDecoder">
 
 <!-- This is a neuroConstruct project file. It's best to open this
 file with neuroConstruct, as opposed to editing it directly. 
@@ -659,12 +659,25 @@ The SomaStimNeuroML and DendStimNeuroML Sim Configs use cells fully specified in
 </string>
    </void>
    <void method="put">
-    <float>-0.5</float>
+    <float>3.0</float>
     <string></string>
    </void>
    <void method="put">
-    <float>3.0</float>
-    <string></string>
+    <float>1.0</float>
+    <string>
+#SIM_CONFIG_INCLUDE Default Simulation Configuration
+#SIM_CONFIG_INCLUDE DendriticStimulation
+
+//print &quot;Manually adding graph for iseg.&quot;
+
+{
+
+        GraphWin_0.addexpr(&quot;a_OriginalCell[0].iseg.v&quot;, &quot;a_OriginalCell[0].iseg.v(0.5)&quot;, 7,1)
+
+}
+
+#END_SIM_CONFIG_INCLUDE Default Simulation Configuration
+#END_SIM_CONFIG_INCLUDE DendriticStimulation</string>
    </void>
    <void method="put">
     <float>-1.0</float>
@@ -798,23 +811,6 @@ gmax_LeakCond = F/rm
 
 
 </string>
-   </void>
-   <void method="put">
-    <float>1.0</float>
-    <string>
-#SIM_CONFIG_INCLUDE Default Simulation Configuration
-#SIM_CONFIG_INCLUDE DendriticStimulation
-
-//print &quot;Manually adding graph for iseg.&quot;
-
-{
-
-        GraphWin_0.addexpr(&quot;a_OriginalCell[0].iseg.v&quot;, &quot;a_OriginalCell[0].iseg.v(0.5)&quot;, 7,1)
-
-}
-
-#END_SIM_CONFIG_INCLUDE Default Simulation Configuration
-#END_SIM_CONFIG_INCLUDE DendriticStimulation</string>
    </void>
    <void method="put">
     <float>2.0</float>

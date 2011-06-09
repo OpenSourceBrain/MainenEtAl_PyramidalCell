@@ -35,7 +35,8 @@ simConfigs.append("SimpleCells-AllSims")
 
 simDt =                 0.002
 
-simulators =            ["NEURON", "GENESIS", "MOOSE", "PSICS"]
+#simulators =            ["NEURON"]
+simulators =            ["NEURON", "GENESIS_PHYS", "GENESIS_SI", "MOOSE_PHYS", "MOOSE_SI", "PSICS", "LEMS"]
 
 numConcurrentSims =     4
 
@@ -43,25 +44,48 @@ varTimestepNeuron =     False
 
 analyseSims =           True
 plotSims =              True
-plotVoltageOnly =       False
+plotVoltageOnly =       True
 runInBackground =       True
 
 verbose = True
 
 #############################################
 
-print "Loading project from "+ projFile.getCanonicalPath()
+
+def testAll(argv=None):
+    if argv is None:
+        argv = sys.argv
+
+    print "Loading project from "+ projFile.getCanonicalPath()
 
 
-simManager = nc.SimulationManager(projFile,
-                                  numConcurrentSims)
+    simManager = nc.SimulationManager(projFile,
+                                      numConcurrentSims)
 
-simManager.runMultipleSims(simConfigs=simConfigs,
-                           simDt=simDt,
-                           simulators=simulators,
-                           runInBackground=runInBackground)
+    simManager.runMultipleSims(simConfigs=simConfigs,
+                               simDt=simDt,
+                               simulators=simulators,
+                               runInBackground=runInBackground)
 
-simManager.reloadSims(plotVoltageOnly=plotVoltageOnly)
+
+    simManager.reloadSims(plotVoltageOnly=plotVoltageOnly)
+
+    # These were discovered using analyseSims = True above.
+    # They need to hold for all simulators
+    spikeTimesToCheck = {'One_ChannelML_0': [33.64]}
+
+    spikeTimeAccuracy = 0.01
+
+    report = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
+                                  spikeTimeAccuracy = spikeTimeAccuracy,
+                                  threshold=-30)
+
+    print report
+
+    return report
+
+if __name__ == "__main__":
+    testAll()
 
 
 
