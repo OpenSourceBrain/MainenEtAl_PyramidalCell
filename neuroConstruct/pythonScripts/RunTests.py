@@ -34,6 +34,7 @@ simConfigs = []
 simConfigs.append("SimpleCells-AllSims")
 
 simDt =                 0.002
+simDtOverride =         {"LEMS":0.0005}
 
 #simulators =            ["NEURON"]
 simulators =            ["NEURON", "GENESIS_PHYS", "GENESIS_SI", "MOOSE_PHYS", "MOOSE_SI", "PSICS", "LEMS"]
@@ -64,6 +65,7 @@ def testAll(argv=None):
 
     simManager.runMultipleSims(simConfigs=simConfigs,
                                simDt=simDt,
+                               simDtOverride=simDtOverride,
                                simulators=simulators,
                                runInBackground=runInBackground)
 
