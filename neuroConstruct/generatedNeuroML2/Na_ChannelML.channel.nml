@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta2.xsd" id="Na_ChannelML">
+
+    <notes>ChannelML file containing a single Channel description, based on the model described in: Mainen et al. 1995</notes>
+
+    <ionChannel id="Na_ChannelML" conductance="10pS" type="ionChannelHH" species="na">
+
+        <notes>ChannelML file containing a single Channel description, based on the model described in: Mainen et al. 1995</notes>
+                
+        <annotation>
+            <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+                <rdf:Description rdf:about="Na_ChannelML">
+                    
+                    <bqmodel:isDescribedBy xmlns:bqmodel="http://biomodels.net/model-qualifiers/">
+                        <rdf:Bag>
+                            <rdf:li>Mainen ZF, Joerges J, Huguenard JR, Sejnowski TJ (1995) A model of spike initiation in
+			neocortical pyramidal neurons. Neuron 15:1427-39</rdf:li>
+                            <rdf:li rdf:resource="http://www.ncbi.nlm.nih.gov/pubmed/8845165?dopt=Abstract"/>
+                        </rdf:Bag>
+                    </bqmodel:isDescribedBy>
+
+                </rdf:Description>
+            </rdf:RDF>
+        </annotation>
+
+        <gate id="m" type="gateHHrates" instances="3">
+            <q10Settings type="q10ExpTemp" q10Factor="2.3" experimentalTemp="23 degC"/>
+            <forwardRate type="HHExpLinearRate" rate="1.638per_ms" scale="9mV" midpoint="-35mV"/>
+            <reverseRate type="HHExpLinearRate" rate="1.116per_ms" scale="-9mV" midpoint="-35mV"/>
+        </gate>
+
+        <gate id="h" type="gateHHratesInf" instances="1">
+            <q10Settings type="q10ExpTemp" q10Factor="2.3" experimentalTemp="23 degC"/>
+            <forwardRate type="HHExpLinearRate" rate="0.12per_ms" scale="5mV" midpoint="-50mV"/>
+            <reverseRate type="HHExpLinearRate" rate="0.0455per_ms" scale="-5mV" midpoint="-75mV"/>
+            <steadyState type="HHSigmoidVariable" rate="1" scale="-6.2mV" midpoint="-65mV"/>
+        </gate>
+                            
+    </ionChannel>
+
+</neuroml>
