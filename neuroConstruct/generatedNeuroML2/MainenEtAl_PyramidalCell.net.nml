@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta1.xsd" id="network_MainenEtAl_PyramidalCell">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta3.xsd" id="network_MainenEtAl_PyramidalCell">
 
     <notes>
 
-Network structure (NeuroML 2beta2) for project: MainenEtAl_PyramidalCell saved with neuroConstruct v1.7.0 on: 14:35:31, 05-Mar-14
+Network structure (NeuroML 2beta3) for project: MainenEtAl_PyramidalCell saved with neuroConstruct v1.7.1 on: 14:08:44, 17-Mar-14
 
 Cell Group: One_ChannelML contains 1 cells
 
@@ -17,7 +17,7 @@ Cell Group: One_ChannelML contains 1 cells
     <include href="Na_ChannelML.channel.nml"/>
     <include href="OneComp_ChannelML.cell.nml"/>
 
-    <pulseGenerator id="Input_2" delay="0.02s" duration="0.06s" amplitude="2.0E-11A"/>
+    <pulseGenerator id="Input_2" delay="20.0ms" duration="60.0ms" amplitude="2.0E-5uA"/>
 
     
     <network id="network_MainenEtAl_PyramidalCell" type="networkWithTemperature" temperature="23.0 degC">
@@ -26,7 +26,7 @@ Cell Group: One_ChannelML contains 1 cells
 
         <population id="One_ChannelML" component="OneComp_ChannelML" type="populationList" size="1">
             <instance id="0">
-                <location x="32.647575" y="12.466812" z="23.552376"/>
+                <location x="45.82333" y="54.972122" z="33.59524"/>
             </instance>
         </population>
 
