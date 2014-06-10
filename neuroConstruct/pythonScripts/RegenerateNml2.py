@@ -19,4 +19,13 @@ simConfigs.append("SimpleCells-AllSims")
 
 nc.generateNeuroML2(projFile, simConfigs)
 
+extra_files = ['.test.omt', '/MainenNeuroML.cell.nml']
+if len(sys.argv)==2 and sys.argv[1] == "-f":
+    extra_files.append('MainenEtAl_PyramidalCell.net.nml')
+    extra_files.append('LEMS_MainenEtAl_PyramidalCell.xml')
+    
+from subprocess import call
+for f in extra_files:
+    call(["git", "checkout", "../generatedNeuroML2/%s"%f])
+
 quit()

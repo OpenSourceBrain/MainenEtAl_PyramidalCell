@@ -75,13 +75,13 @@ def testAll(argv=None):
 
     # These were discovered using analyseSims = True above.
     # They need to hold for all simulators
-    spikeTimesToCheck = {'One_ChannelML_0': [33.64]}
+    spikeTimesToCheck = {'One_ChannelML_0': [31.04, 57.47]}
 
-    spikeTimeAccuracy = 0.01
+    spikeTimeAccuracy = 0.1
 
     report = simManager.checkSims(spikeTimesToCheck = spikeTimesToCheck,
                                   spikeTimeAccuracy = spikeTimeAccuracy,
-                                  threshold=-30)
+                                  threshold=-46)
 
     print report
 
