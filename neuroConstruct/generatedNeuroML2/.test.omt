@@ -2,16 +2,16 @@
 # Still in development, subject to change without notice!!
 target: LEMS_MainenEtAl_PyramidalCell.xml
 engine: jNeuroML
-implements:
-  mep: .test.mep
-  experiment: Current clamp
-  observables:
-    spike times:
-      file: 
-        path: One_ChannelML_0.dat
-        columns: [0,1]
-        scaling: [1000, 1000]
-      spike detection: 
-        method: threshold
-        threshold: -46
-      tolerance: 0.1
+mep: .test.mep
+experiments:
+  Current clamp:
+    observables:
+      spike times:
+        file: 
+          path: One_ChannelML_0.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -46
+        tolerance: 0.1
