@@ -23,18 +23,18 @@
             </rdf:RDF>
         </annotation>
 
-        <gateHHrates id="m" instances="3">
+        <gate id="m" type="gateHHrates" instances="3">
             <q10Settings type="q10ExpTemp" q10Factor="2.3" experimentalTemp="23 degC"/>
             <forwardRate type="HHExpLinearRate" rate="1.638per_ms" scale="9mV" midpoint="-35mV"/>
             <reverseRate type="HHExpLinearRate" rate="1.116per_ms" scale="-9mV" midpoint="-35mV"/>
-        </gateHHrates>
+        </gate>
 
-        <gateHHratesInf id="h" instances="1">
+        <gate id="h" type="gateHHratesInf" instances="1">
             <q10Settings type="q10ExpTemp" q10Factor="2.3" experimentalTemp="23 degC"/>
             <forwardRate type="HHExpLinearRate" rate="0.12per_ms" scale="5mV" midpoint="-50mV"/>
             <reverseRate type="HHExpLinearRate" rate="0.0455per_ms" scale="-5mV" midpoint="-75mV"/>
             <steadyState type="HHSigmoidVariable" rate="1" scale="-6.2mV" midpoint="-65mV"/>
-        </gateHHratesInf>
+        </gate>
                             
     </ionChannel>
 
