@@ -5,7 +5,7 @@
 
     <ionChannel id="K_ChannelML" conductance="10pS" type="ionChannelHH" species="k">
 
-        <notes>ChannelML file containing a single Channel description, based on the model described in: Mainen et al. 1995</notes>
+        <notes>Noninactivating K channel as used in Mainen et al. 1995</notes>
                 
         <annotation>
             <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
