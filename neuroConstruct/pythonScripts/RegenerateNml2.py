@@ -19,7 +19,8 @@ simConfigs.append("SimpleCells-AllSims")
 
 nc.generateNeuroML2(projFile, simConfigs)
 
-extra_files = ['.test.*', '/MainenNeuroML.cell.nml']
+extra_files = ['.test.*', '/MainenNeuroML.cell.nml', 'analyseChannels.sh', 'channel_summary']
+
 if len(sys.argv)==2 and sys.argv[1] == "-f":
     extra_files.append('MainenEtAl_PyramidalCell.net.nml')
     extra_files.append('LEMS_MainenEtAl_PyramidalCell.xml')
