@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta3.xsd" id="network_MainenEtAl_PyramidalCell">
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2  https://raw.githubusercontent.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="network_MainenEtAl_PyramidalCell">
 
     <notes>
 
-Network structure (NeuroML 2beta3) for project: MainenEtAl_PyramidalCell saved with neuroConstruct v1.7.1 on: 14:08:44, 17-Mar-14
+Network structure (NeuroML 2beta5) for project: MainenEtAl_PyramidalCell saved with neuroConstruct v1.7.1 on: 10:22:09, 27-Apr-17
 
-Cell Group: One_ChannelML contains 1 cells
+Cell Group: NeuroMLBased contains 1 cells
 
 
 
@@ -14,19 +14,20 @@ Cell Group: One_ChannelML contains 1 cells
 
     <include href="K_ChannelML.channel.nml"/>
     <include href="LeakCond.channel.nml"/>
+    <include href="MainenNeuroML.cell.nml"/>
     <include href="Na_ChannelML.channel.nml"/>
-    <include href="OneComp_ChannelML.cell.nml"/>
-
-    <pulseGenerator id="Input_2" delay="20.0ms" duration="60.0ms" amplitude="2.0E-5uA"/>
-
+    <pulseGenerator id="Input_3" delay="3.0ms" duration="40.0ms" amplitude="1.6E-4uA"/>
     
     <network id="network_MainenEtAl_PyramidalCell" type="networkWithTemperature" temperature="23.0 degC">
 
         
 
-        <population id="One_ChannelML" component="OneComp_ChannelML" type="populationList" size="1">
+        <population id="NeuroMLBased" component="MainenNeuroML" type="populationList" size="1">
+           <annotation>
+                <property tag="color" value="0.1640625 0.66796875 0.9375"/>
+            </annotation>
             <instance id="0">
-                <location x="45.82333" y="54.972122" z="33.59524"/>
+                <location x="0.0" y="0.0" z="0.0"/>
             </instance>
         </population>
 
@@ -35,8 +36,8 @@ Cell Group: One_ChannelML contains 1 cells
             <!--There are no synaptic connections present in the network-->
 
 
-        <inputList id="Input_2" component="Input_2" population="One_ChannelML">
-            <input id="0" target="../One_ChannelML/0/OneComp_ChannelML" destination="synapses"/>
+        <inputList id="Input_3" component="Input_3" population="NeuroMLBased">
+            <input id="0" target="../NeuroMLBased/0/MainenNeuroML" destination="synapses" segmentId="8"/>
         </inputList>
 
 

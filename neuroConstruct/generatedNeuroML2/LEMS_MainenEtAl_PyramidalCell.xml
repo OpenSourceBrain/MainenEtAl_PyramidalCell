@@ -1,6 +1,6 @@
-<Lems xmlns="http://www.neuroml.org/lems/0.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2  https://raw.github.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
+<Lems xmlns="http://www.neuroml.org/lems/0.7.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/lems/0.7.2  https://raw.githubusercontent.com/LEMS/LEMS/development/Schemas/LEMS/LEMS_v0.7.2.xsd">
 
-    <Target component="sim1" reportFile="simulator.props" timesFile="time.dat"/>
+    <Target component="sim1" reportFile="/home/padraig/neuroConstruct/osb/cerebral_cortex/neocortical_pyramidal_neuron/MainenEtAl_PyramidalCell/neuroConstruct/simulations/Sim_124/simulator.props" timesFile="/home/padraig/neuroConstruct/osb/cerebral_cortex/neocortical_pyramidal_neuron/MainenEtAl_PyramidalCell/neuroConstruct/simulations/Sim_124/time.dat"/>
 
         <!--Include standard NeuroML 2 ComponentType definitions-->
 
@@ -18,43 +18,33 @@
     <Include file="LeakCond.channel.nml"/>
     <Include file="Na_ChannelML.channel.nml"/>
         <!--   Cell files-->
-    <Include file="OneComp_ChannelML.cell.nml"/>
+    <Include file="MainenNeuroML.cell.nml"/>
         <!--   Network file-->
     <Include file="MainenEtAl_PyramidalCell.net.nml"/>
     
 
         <!--Note: this could be: Simulation id="sim1" ... , but Component type="Simulation" ... 
         is used to allow validation of this file according to the LEMS schema specified above...-->
-    <Component type="Simulation" id="sim1" length="100.0ms" step="0.025ms" target="network_MainenEtAl_PyramidalCell">
+    <Component type="Simulation" id="sim1" length="60.0ms" step="0.01ms" target="network_MainenEtAl_PyramidalCell">
         
-        <Display id="GraphWin_2" title="MainenEtAl_PyramidalCell: SimpleCells-AllSims, One_ChannelML, VOLTAGE" xmin="-0.010000001" xmax="0.11000001" ymin="-0.104" ymax="0.064" timeScale="1s">
-            <Line id="VOLTAGE" timeScale="1s" quantity="One_ChannelML/0/OneComp_ChannelML/v" scale="1 V" color="#000000"/>
-        </Display>
-    
-        <Display id="GraphWin_1" title="MainenEtAl_PyramidalCell: SimpleCells-AllSims, One_ChannelML, Na_ChannelML:m, Na_ChannelML:h" xmin="-0.010000001" xmax="0.11000001" ymin="-0.1" ymax="1.1" timeScale="1s">
-            <Line id="Na_ChannelML_m" timeScale="1s" quantity="One_ChannelML/0/OneComp_ChannelML/biophys/membraneProperties/Na_ChannelML_all/Na_ChannelML/m/q" scale="1" color="#000000"/>
+        <Display id="NeuroMLBased_v" title="MainenEtAl_PyramidalCell: SomaStimNeuroML, NeuroMLBased, VOLTAGE, VOLTAGE, VOLTAGE" xmin="-6.0" xmax="66.0" ymin="-105.0" ymax="75.0" timeScale="1ms">
+            <Line id="v" timeScale="1ms" quantity="NeuroMLBased/0/MainenNeuroML/4197/v" scale="1 mV" color="#000000"/>
         
-            <Line id="Na_ChannelML_h" timeScale="1s" quantity="One_ChannelML/0/OneComp_ChannelML/biophys/membraneProperties/Na_ChannelML_all/Na_ChannelML/h/q" scale="1" color="#ff0000"/>
+            <Line id="v" timeScale="1ms" quantity="NeuroMLBased/0/MainenNeuroML/5649/v" scale="1 mV" color="#ff0000"/>
+        
+            <Line id="v" timeScale="1ms" quantity="NeuroMLBased/0/MainenNeuroML/0/v" scale="1 mV" color="#0000ff"/>
         </Display>
     
-        <Display id="GraphWin_4" title="MainenEtAl_PyramidalCell: SimpleCells-AllSims, One_ChannelML, K_ChannelML:n" xmin="-0.010000001" xmax="0.11000001" ymin="-0.010000001" ymax="0.11" timeScale="1s">
-            <Line id="K_ChannelML_n" timeScale="1s" quantity="One_ChannelML/0/OneComp_ChannelML/biophys/membraneProperties/K_ChannelML_all/K_ChannelML/n/q" scale="1" color="#000000"/>
-        </Display>
-    
-        <OutputFile id="Plot_2_OF" fileName="One_ChannelML_0.dat">
-            <OutputColumn id="v" quantity="One_ChannelML/0/OneComp_ChannelML/v"/>
+        <OutputFile id="DendXML_0_4197_OF" fileName="NeuroMLBased_0.4197.dat">
+            <OutputColumn id="v" quantity="NeuroMLBased/0/MainenNeuroML/4197/v"/>
         </OutputFile>
     
-        <OutputFile id="Var_2_OF" fileName="One_ChannelML_0.Na_ChannelML_m.dat">
-            <OutputColumn id="q" quantity="One_ChannelML/0/OneComp_ChannelML/biophys/membraneProperties/Na_ChannelML_all/Na_ChannelML/m/q"/>
+        <OutputFile id="IsegXML_0_5649_OF" fileName="NeuroMLBased_0.5649.dat">
+            <OutputColumn id="v" quantity="NeuroMLBased/0/MainenNeuroML/5649/v"/>
         </OutputFile>
     
-        <OutputFile id="Var_3_OF" fileName="One_ChannelML_0.Na_ChannelML_h.dat">
-            <OutputColumn id="q" quantity="One_ChannelML/0/OneComp_ChannelML/biophys/membraneProperties/Na_ChannelML_all/Na_ChannelML/h/q"/>
-        </OutputFile>
-    
-        <OutputFile id="Var_5_OF" fileName="One_ChannelML_0.K_ChannelML_n.dat">
-            <OutputColumn id="q" quantity="One_ChannelML/0/OneComp_ChannelML/biophys/membraneProperties/K_ChannelML_all/K_ChannelML/n/q"/>
+        <OutputFile id="NeuroMLBased_v_0_0_OF" fileName="NeuroMLBased_0.0.dat">
+            <OutputColumn id="v" quantity="NeuroMLBased/0/MainenNeuroML/0/v"/>
         </OutputFile>
     </Component>
 
