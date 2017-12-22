@@ -1,0 +1,17 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/borismarin/osb-model-validation  
+
+target: LEMS_OneComp.xml
+engine: jNeuroML_Moose
+mep: .test.mep
+experiments:
+  Current clamp:
+    observables:
+      spike times:
+        file: 
+          path: One_ChannelML_0.dat
+          columns: [0,1]
+          scaling: [1000, 1000]
+        spike detection: 
+          method: threshold
+          threshold: -46
+        tolerance: 0.00130491518051
