@@ -24,3 +24,6 @@ simulations
 /neuroConstruct/generatedNeuroML2/LEMS_Test_Na_ChannelML.xml
 /neuroConstruct/generatedNeuroML2/*.json
 /neuroConstruct/generatedNeuroML2/*_moose.py
+*.gen.c
+*.gen.so
+*_eden.py
