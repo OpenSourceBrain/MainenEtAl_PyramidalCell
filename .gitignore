@@ -27,3 +27,5 @@ simulations
 *.gen.c
 *.gen.so
 *_eden.py
+arm64
+/neuroConstruct/generatedNeuroML2/OneComp.net.nml__flattened.xml
