@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         python-version: [ 3.9 ]
-        engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_validate, jNeuroML_Moose, jNeuroML_EDEN ]
+        engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_validate, jNeuroML_Moose, "jNeuroML_Moose:4.0.0.dev20240411", jNeuroML_EDEN ]
 
     steps:
     - uses: actions/checkout@v4
