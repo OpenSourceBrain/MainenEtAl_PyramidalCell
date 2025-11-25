@@ -10,11 +10,11 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     strategy:
       fail-fast: false
       matrix:
-        python-version: [ 3.9 ]
+        python-version: [ 3.11 ]
         engine: [ jNeuroML, jNeuroML_NEURON, jNeuroML_validate, jNeuroML_Moose, "jNeuroML_Moose:4.0.0.dev20240411", jNeuroML_EDEN ]
 
     steps:
@@ -24,11 +24,17 @@ jobs:
       uses: actions/setup-python@v5
       with:
         python-version:  ${{ matrix.python-version }}
+  
+    - name: Install numpy < 2 if necessary...
+      run: |
+        if [[  ${{ matrix.engine }} == *"MOOSE"* ]] || [[  ${{ matrix.engine }} == *"Moose"* ]]; then pip install "numpy<2" ; fi ;
+        pip list
 
     - name: Install OMV
       run: |
         pip install git+https://github.com/OpenSourceBrain/osb-model-validation
         pip install scipy sympy matplotlib cython pandas tables
+        pip install setuptools --upgrade # needed for Eden on py 3.12
 
     - name: Run OMV tests on engine ${{ matrix.engine }}
       run: |
